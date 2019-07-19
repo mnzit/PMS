@@ -1,0 +1,9 @@
+<div th:text="${venue.name}"></div>
+<form action="/customers/park" method="post">
+    Vehicle Number: <br>
+    <input type="text" name="vehicle_number_plate" id=""> <br>
+    Select vehicle type (Two Wheeler[1] or Four Wheeler[2] ) <br>
+    <input type="text" name="vehicle_type" id=""> <br>
+    <input type="hidden" name="venue_id" th:value="${venue.id}">
+    <button type="submit">Next</button>
+</form>
