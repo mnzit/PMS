@@ -5,6 +5,8 @@
  */
 package com.fls.pms.controller;
 
+import com.fls.pms.repository.VenueRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +18,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping(value = "/")
-public class HomeController {
-    @GetMapping
+public class DashboardController {
+    
+    @Autowired
+    private VenueRepository venueRepo;
+    
+    @GetMapping(value = "/customers/index")
     public String index(Model model) {
-        return "index";
+        model.addAttribute("venues",venueRepo.findAll());
+        return "customers/index";
     }
 }

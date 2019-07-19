@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <form action="" method="post">
+            Find By Location <br>
+            <input type="text" name="" id="">
+            <button type="submit">Search</button>
+        </form>
+        <table class="table table-bordered">
+            <th>
+
+            </th>
+            <tr th:each="venue:${venues}">
+                <td th:text="${venue.name}"></td>
+                <td th:text="${venue.contactNo}"></td>
+                <td th:text="${venue.address}"></td>
+                <td th:text="${venue.bikeCapacity}"></td>
+                <td th:text="${venue.carCapacity}"></td>
+                <td>
+                    <a th:href="@{'/customers/park/'+${venue.id}}">Park</a>
+                </td>            
+            </tr>
+        </table>
+    </body>
+</html>
